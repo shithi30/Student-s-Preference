@@ -1,0 +1,146 @@
+# 
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_daily_fb_hrs <- dummy_after_imputation$daily_fb_hrs
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+table(dummy_daily_fb_hrs, dummy_cgpa_status)
+dummy_tab <- table(dummy_daily_fb_hrs, dummy_cgpa_status)
+barplot(dummy_tab, beside=T, legend=T)
+chisq.test(dummy_tab, correct=T)
+
+Pearson's Chi-squared test with Yates' continuity correction
+data:  dummy_tab
+X-squared = 45.254, df = 1, p-value = 1.731e-11
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+dummy_with_family <- dummy_after_imputation$with_family
+table(dummy_with_family, dummy_cgpa_status)
+dummy_tab <- table(dummy_with_family, dummy_cgpa_status)
+barplot(dummy_tab, beside=T, legend=T)
+chisq.test(dummy_tab, correct=T)
+
+Pearson's Chi-squared test with Yates' continuity correction
+data:  dummy_tab
+X-squared = 2.7991, df = 1, p-value = 0.09432
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+dummy_motive_fulfilled_motivation <- dummy_after_imputation$motive_fulfilled_motivation
+table(dummy_motive_fulfilled_motivation, dummy_cgpa_status)
+dummy_tab <- table(dummy_motive_fulfilled_motivation, dummy_cgpa_status)
+barplot(dummy_tab, beside=T, legend=T)
+chisq.test(dummy_tab, correct=T)
+
+Pearson's Chi-squared test
+data:  dummy_tab
+X-squared = 0.59718, df = 2, p-value = 0.7419
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+dummy_attendance <- dummy_after_imputation$attendance
+table(dummy_attendance, dummy_cgpa_status)
+dummy_tab <- table(dummy_attendance, dummy_cgpa_status)
+barplot(dummy_tab, beside=T, legend=T)
+chisq.test(dummy_tab, correct=T)
+
+Pearson's Chi-squared test
+data:  dummy_tab
+X-squared = 1.978, df = 2, p-value = 0.3719
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+dummy_theory_interest <- dummy_after_imputation$theory_interest
+table(dummy_theory_interest, dummy_cgpa_status)
+dummy_tab <- table(dummy_theory_interest, dummy_cgpa_status)
+barplot(dummy_tab, beside=T, legend=T)
+chisq.test(dummy_tab, correct=T)
+
+Pearson's Chi-squared test
+data:  dummy_tab
+X-squared = 4.956, df = 2, p-value = 0.08391
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+dummy_gender <- dummy_after_imputation$gender
+table(dummy_gender, dummy_cgpa_status)
+dummy_tab <- table(dummy_gender, dummy_cgpa_status)
+barplot(dummy_tab, beside=T, legend=T)
+chisq.test(dummy_tab, correct=T)
+
+Pearson's Chi-squared test with Yates' continuity correction
+data:  dummy_tab
+X-squared = 0.2086, df = 1, p-value = 0.6479
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+dummy_classnote_taking <- dummy_after_imputation$classnote_taking
+table(dummy_classnote_taking, dummy_cgpa_status)
+dummy_tab <- table(dummy_classnote_taking, dummy_cgpa_status)
+barplot(dummy_tab, beside=T, legend=T)
+chisq.test(dummy_tab, correct=T)
+
+Pearson's Chi-squared test
+data:  dummy_tab
+X-squared = 18.553, df = 2, p-value = 9.36e-05
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+dummy_lab_interest <- dummy_after_imputation$lab_interest
+table(dummy_lab_interest, dummy_cgpa_status)
+dummy_tab <- table(dummy_lab_interest, dummy_cgpa_status)
+barplot(dummy_tab, beside=T, legend=T)
+chisq.test(dummy_tab, correct=T)
+
+Pearson's Chi-squared test
+data:  dummy_tab
+X-squared = 2.7272, df = 2, p-value = 0.2557
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_income_month <- dummy_after_imputation$income_month
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+t.test(dummy_income_month~dummy_cgpa_status, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F)
+
+Welch Two Sample t-test
+data:  dummy_income_month by dummy_cgpa_status
+t = 0.21972, df = 36.864, p-value = 0.8273
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -2.936082  3.650213
+sample estimates:
+mean in group 0 mean in group 1 
+       7.487500        7.130435 
+
+#
+setwd("F:/4.2/pattern recognition lab/project")
+dummy_after_imputation <- read.csv("3.4_threshold_imputated_divided13.csv")
+dummy_programming_hrs_day <- dummy_after_imputation$programming_hrs_day
+dummy_cgpa_status <- dummy_after_imputation$cgpa_status
+t.test(dummy_programming_hrs_day~dummy_cgpa_status, mu=0, alt="two.sided", conf=0.95, var.eq=F, paired=F)
+
+Welch Two Sample t-test
+data:  dummy_programming_hrs_day by dummy_cgpa_status
+t = -0.63789, df = 24.137, p-value = 0.5296
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -1.6234008  0.8566616
+sample estimates:
+mean in group 0 mean in group 1 
+        1.37750         1.76087
+

@@ -1,0 +1,39 @@
+setwd("F:/4.2/pattern recognition lab/project")
+
+dummy <- read.csv("3.4_threshold_after_imputation.csv")
+
+dummy <- dummy[sample(1:nrow(dummy)), ]
+dummy <- dummy[sample(1:nrow(dummy)), ]
+dummy <- dummy[sample(1:nrow(dummy)), ]
+dummy <- dummy[sample(1:nrow(dummy)), ]
+
+dummy_ones <- dummy[dummy$cgpa_status==1, ]
+dummy_ones <- dummy_ones[sample(1:nrow(dummy_ones)), ]
+dummy_ones <- dummy_ones[sample(1:nrow(dummy_ones)), ]
+dummy_ones <- dummy_ones[sample(1:nrow(dummy_ones)), ]
+dummy_ones <- dummy_ones[sample(1:nrow(dummy_ones)), ]
+
+dummy_zeros <- dummy[dummy$cgpa_status==0, ]
+dummy_zeros <- dummy_zeros[sample(1:nrow(dummy_zeros)), ]
+dummy_zeros <- dummy_zeros[sample(1:nrow(dummy_zeros)), ]
+dummy_zeros <- dummy_zeros[sample(1:nrow(dummy_zeros)), ]
+dummy_zeros <- dummy_zeros[sample(1:nrow(dummy_zeros)), ]
+
+test_zeros <- dummy_zeros[1:16, ]
+test_ones <- dummy_ones[1:4, ]
+test <- rbind(test_zeros, test_ones)
+
+train_zeros <- dummy_zeros[17:80, ]
+train_ones <- dummy_ones[5:23, ]
+train <- rbind(train_zeros, train_ones)
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+
+dummy2 <- rbind(train, test)
+write.csv(dummy2, "3.4_threshold_imputated_divided2.csv", row.names=FALSE)

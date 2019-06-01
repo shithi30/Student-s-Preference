@@ -1,0 +1,37 @@
+mode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+setwd("F:/4.2/pattern recognition lab/project")
+
+dummy <- read.csv("3.4_threshold_before_imputation.csv")
+
+dummy_cgpa_status <- dummy$cgpa_status
+
+dummy_programming_hrs_day <- dummy$programming_hrs_day
+dummy_programming_hrs_day[is.na(dummy_programming_hrs_day) & dummy_cgpa_status==1] <- mode(dummy_programming_hrs_day[!is.na(dummy_programming_hrs_day) & dummy_cgpa_status==1])
+dummy_programming_hrs_day[is.na(dummy_programming_hrs_day) & dummy_cgpa_status==0] <- mode(dummy_programming_hrs_day[!is.na(dummy_programming_hrs_day) & dummy_cgpa_status==0])
+dummy$programming_hrs_day <- dummy_programming_hrs_day
+
+dummy_attendance <- dummy$attendance
+dummy_attendance[is.na(dummy_attendance) & dummy_cgpa_status==1] <- mode(dummy_attendance[!is.na(dummy_attendance) & dummy_cgpa_status==1])
+dummy_attendance[is.na(dummy_attendance) & dummy_cgpa_status==0] <- mode(dummy_attendance[!is.na(dummy_attendance) & dummy_cgpa_status==0])
+dummy$attendance <- dummy_attendance
+
+dummy_theory_interest <- dummy$theory_interest
+dummy_theory_interest[is.na(dummy_theory_interest) & dummy_cgpa_status==1] <- mode(dummy_theory_interest[!is.na(dummy_theory_interest) & dummy_cgpa_status==1])
+dummy_theory_interest[is.na(dummy_theory_interest) & dummy_cgpa_status==0] <- mode(dummy_theory_interest[!is.na(dummy_theory_interest) & dummy_cgpa_status==0])
+dummy$theory_interest <- dummy_theory_interest
+
+dummy_motive_fulfilled_motivation <- dummy$motive_fulfilled_motivation
+dummy_motive_fulfilled_motivation[is.na(dummy_motive_fulfilled_motivation) & dummy_cgpa_status==1] <- mode(dummy_motive_fulfilled_motivation[!is.na(dummy_motive_fulfilled_motivation) & dummy_cgpa_status==1])
+dummy_motive_fulfilled_motivation[is.na(dummy_motive_fulfilled_motivation) & dummy_cgpa_status==0] <- mode(dummy_motive_fulfilled_motivation[!is.na(dummy_motive_fulfilled_motivation) & dummy_cgpa_status==0])
+dummy$motive_fulfilled_motivation <- dummy_motive_fulfilled_motivation
+
+dummy_income_month <- as.numeric(dummy$income_month)
+dummy_income_month[is.na(dummy_income_month) & dummy_cgpa_status==1] <- median(dummy_income_month[!is.na(dummy_income_month) & dummy_cgpa_status==1])
+dummy_income_month[is.na(dummy_income_month) & dummy_cgpa_status==0] <- median(dummy_income_month[!is.na(dummy_income_month) & dummy_cgpa_status==0])
+dummy$income_month <- dummy_income_month
+
+write.csv(dummy, "3.4_threshold_after_imputation.csv", row.names=FALSE)
